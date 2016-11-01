@@ -47,7 +47,7 @@ bjvcallOpt = {
 Step 3. Use JavaScript to control the program
 
 ```javascript
-var bjvcall = BJVCall('bjvcall');
+var bjvcall = BJVCall('bjvcall', bjvcallOpt);
 $('.bjvcall-open').on('click', function(){
     bjvcall.start();
 });
