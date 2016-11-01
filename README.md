@@ -1,6 +1,12 @@
 # BJVCall
 BlueJay Video Call
 
+## Install
+
+```shell
+bower install bjvcall
+```
+
 ## General Usage Case
 
 Step 1. Place `<div id="bjvcall"></div>` to the location you want to display the video in HTML.  
