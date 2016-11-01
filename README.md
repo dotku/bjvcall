@@ -2,12 +2,13 @@
 BlueJay Video Call
 
 ## General Usage Case
-Step 1. Place `<div id="bjvcall"></div>` to the location you want to display the video in HTML.
-Step 2. Setup your option variable (Optional)
 
-Sample/default option object
+Step 1. Place `<div id="bjvcall"></div>` to the location you want to display the video in HTML.  
+Step 2. Setup your option variable (Optional)  
+  
+Sample/default option object  
 
-```
+```javascript
 bjvcallOpt = {
       heading : {
         if_display: true,
@@ -45,7 +46,7 @@ bjvcallOpt = {
 
 Step 3. Use JavaScript to control the program
 
-```
+```javascript
 var bjvcall = BJVCall('bjvcall');
 $('.bjvcall-open').on('click', function(){
     bjvcall.start();
@@ -53,7 +54,8 @@ $('.bjvcall-open').on('click', function(){
 ```
 
 ## Controller Usage
-```
+
+```javascript
 bjvcall.open(); // display the video call and start the video process
 bjvcall.close(); // hide the video call and stop the video process
 ```
