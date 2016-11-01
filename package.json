@@ -1,0 +1,20 @@
+{
+  "name": "bjvcall",
+  "version": "1.0.0",
+  "description": "A video plugin from BlueJay Inc",
+  "main": "Gruntfile.js",
+  "dependencies": {
+    "grunt": "^1.0.1"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "grunt test"
+  },
+  "keywords": [
+    "BlueJay",
+    "Video",
+    "LiveChat"
+  ],
+  "author": "BlueJay Inc",
+  "license": "ISC"
+}

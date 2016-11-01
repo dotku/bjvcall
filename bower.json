@@ -1,0 +1,25 @@
+{
+  "name": "bjvcall",
+  "description": "A video plugin from BlueJay Inc",
+  "main": "Gruntfile.js",
+  "authors": [
+    "BlueJay Inc"
+  ],
+  "license": "Copyrights (c) 2016 BlueJay Inc.",
+  "keywords": [
+    "BlueJay",
+    "Video",
+    "LiveChat"
+  ],
+  "homepage": "http://www.bluejayhealth.com",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "bootstrap": "^3.3.7"
+  }
+}

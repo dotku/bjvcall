@@ -1,0 +1,38 @@
+.bjvcall-container {
+	position: fixed;
+	height: 100%;
+	width: 100%;
+	top: 0px;
+	right: 0px;
+	bottom: 0px;
+	left: 0px;
+	z-index: 999;
+}
+.bjvcall-container > .videoVisit {
+z-index: 9999999; position:fixed;  visibility:hidden; padding:5px;
+}
+.bjvcall-container .bjvcall-heading {
+	height: 50px;
+	line-height: 50px;
+	background-color: #fff;
+	color: #4a4a4a;
+}
+
+.bjvcall-container .bjvcall-heading .header-status,
+.bjvcall-container .bjvcall-heading .header-title,
+.bjvcall-container .bjvcall-heading .header-window-controller {
+	margin-right: 14px;
+}
+.bjvcall-container .bjvcall-body{
+	height: 100%;
+	background-image: linear-gradient(to bottom, #36a3dc, #0057a1);
+}
+
+.bjvcall-container .bjvcall-body .body-logo {
+	padding-top: 20%;
+}
+.bjvcall-container .body-video-controller {
+	width: 100%;
+	position: absolute;
+	bottom: 0px;
+}
