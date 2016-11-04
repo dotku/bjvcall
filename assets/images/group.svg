@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg width="60px" height="60px" viewBox="0 0 60 60" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: sketchtool 39.1 (31720) - http://www.bohemiancoding.com/sketch -->
+    <title>7FA49EEB-9EE7-4128-96AE-BD52884D4875</title>
+    <desc>Created with sketchtool.</desc>
+    <defs></defs>
+    <g id="Welcome" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="connecting-Desktop-HD" transform="translate(-661.000000, -926.000000)">
+            <g id="Group-4" transform="translate(661.000000, 926.000000)">
+                <g id="video-on">
+                    <ellipse id="Oval-138" stroke="#FFFFFF" fill="#4990E2" cx="29.5" cy="29.5" rx="25" ry="25"></ellipse>
+                    <g id="Page-1" transform="translate(15.750000, 21.750000)" fill="#FFFFFF">
+                        <path d="M27.4975476,2.16935367 L23.1312774,4.76492477 C23.1295476,4.76603257 23.127975,4.76745688 23.1260879,4.76856468 L23.1260879,4.17810826 C23.1260879,1.88021835 21.2578621,-3.1651376e-05 18.9743177,-3.1651376e-05 L4.15164435,-3.1651376e-05 C1.86825726,-3.1651376e-05 3.14516128e-05,1.88021835 3.14516128e-05,4.17810826 L3.14516128e-05,13.0200784 C3.14516128e-05,15.3179683 1.86825726,17.1980601 4.15164435,17.1980601 L18.9743177,17.1980601 C21.2578621,17.1980601 23.1260879,15.3179683 23.1260879,13.0200784 L23.1260879,12.4049339 L27.4833944,15.0824821 C28.2349306,15.5442757 29.1987653,15.0000303 29.1987653,14.11395 L29.1987653,3.14643165 C29.1987653,2.26778945 28.2492411,1.72243624 27.4975476,2.16935367" id="Fill-1"></path>
+                    </g>
+                    <text id="-" font-family="SanFranciscoDisplay-Regular, San Francisco Display" font-size="24" font-weight="normal">
+                        <tspan x="6" y="60" fill="#0799FF"> </tspan>
+                        <tspan x="10.828125" y="60" font-size="20" fill="#0799FF"></tspan>
+                        <tspan x="6" y="89" font-family="SanFranciscoDisplay-Semibold, San Francisco Display" font-size="12" font-weight="500" fill="#FFFFFF">video on</tspan>
+                    </text>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

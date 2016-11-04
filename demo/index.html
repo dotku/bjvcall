@@ -9,6 +9,7 @@
 
     <!-- Bootstrap -->
     <link href="../bower_components/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css" rel="stylesheet" >
     <link href="../assets/css/bjvcall.css" rel="stylesheet">
 
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
@@ -22,7 +23,7 @@
     <!-- Include all compiled plugins (below), or include individual files as needed -->
     <script src="../bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
     <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
-    <script src="../assets/js/bjvcall.eventHandle.js"></script>
+    <script src="../assets/js/bjvcall.js"></script>
     
   </head>
   <body>
@@ -33,17 +34,19 @@
     </div>
     
 
-    <div id="bjvcall"></div>
+    <!--
+      <div id="bjvcall"></div>
+    -->
     
     <script>
-    var bjvcall = BJVCall('bjvcall');
-    bjvcall.init();
+    var bjvcall = BJVCall();
+    bjvcall.setTitle('Micheal Chen');
+    bjvcall.open();
     
     $('.bjvcall-open').on('click', function(){
       console.log("$('button.bjvcall-open').on('click', function()");
-      // bjvcall = BJVCall('bjvcall');
       bjvcall.start();
-      // bjvcall.open();
+
     });
     /*
     $('.bjvcall-close').on('click', function(){

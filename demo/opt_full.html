@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+		<title>Bootstrap 101 Template</title>
+
+		<!-- Bootstrap -->
+		<link href="../bower_components/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+		<link href="../assets/css/bjvcall.css" rel="stylesheet">
+
+		<!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+		<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+		<!--[if lt IE 9]>
+			<script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+			<script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+		<![endif]-->
+		<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+		<!-- Include all compiled plugins (below), or include individual files as needed -->
+		<script src="../bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+		<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+		<script src="../assets/js/bjvcall.js"></script>
+		
+	</head>
+	<body>
+		<div class="container-fluid">
+			<h1>Hello, world!</h1>
+			<a class="btn btn-default bjvcall-open" href="javascript:;">Open BJVCall</a>
+			<a class="btn btn-default bjvcall-close" href="javascript:;">Close BJVCall</a>
+		</div>
+		
+
+		<!--
+			<div id="bjvcall"></div>
+		-->
+		
+		<script>
+		var bjvcallOpt = {
+			heading : {
+				if_display: true,
+				window_controller: {
+					if_close: true,
+					if_minimize: true,
+					if_maximize: true,
+					allow_move: true,
+					allow_resize: false // planed feature
+				},
+				title: "Micchell Chen",
+				status: "Connecting...", // would be timer display after connected
+				logo: "<img src='/assets/images/logo.png'>"
+			},
+			body : {
+				cover: "[PATIENT_ICON]",
+				VCtrlLeft: "[MINIVIDEO]",
+				VCtrlCenter: "[VideoICON] | [AudioICON]",
+				VCtrlRight: "[Volume]"
+			},
+			valume: 8,
+			app_debug: true,
+			size: 'full', //['small', 'big', full'],
+			bjparam: {
+				token: '', // required
+				userid: '',
+				admindoctor: '',
+				passcode: '',
+				others: {}
+			},
+			status: 0 //[{0: 'init status, nothing'}, {1: 'running'}, {-1: 'stop'}, {-2: 'error'}]
+		};
+		var bjvcall = BJVCall();
+		bjvcall.setOpt(bjvcallOpt);
+		
+		$('.bjvcall-open').on('click', function(){
+			console.log("$('button.bjvcall-open').on('click', function()");
+			bjvcall.start();
+		});
+		/*
+		$('.bjvcall-close').on('click', function(){
+			if (typeof bjvcall != "undefined") {
+				bjvcall.close();
+				bjvcall = undefined;
+			}
+		})
+		*/
+
+		</script>
+		
+	</body>
+</html>

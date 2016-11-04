@@ -1,0 +1,35 @@
+<html>
+<head>
+<title>BJVCall</title>
+<link href="./bower_components/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+<script src="./bower_components/jquery/dist/jquery.js"></script>
+<script src="./bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+<script src="./bower_components/angular/angular.js"></script>
+<script src="./bower_components/angular-sanitize/angular-sanitize.min.js"></script>
+<script src="./bower_components/showdown/compressed/showdown.min.js"></script>
+<script src="./bower_components/angular-markdown-directive/markdown.js"></script>
+</head>
+
+<body ng-app="myApp">
+    <div class="container">
+        <div btf-markdown ng-include="'README.md'"></div>
+    </div>
+</body>
+
+<script>
+angular.module('myApp', [
+  'ngSanitize',
+  'btford.markdown'
+]).
+config(['markdownConverterProvider', function (markdownConverterProvider) {
+  // options to be passed to Showdown
+  // see: https://github.com/coreyti/showdown#extensions
+  /*
+    markdownConverterProvider.config({
+    extensions: ['twitter']
+  });
+  */
+}]);
+</script>
+
+</html>
