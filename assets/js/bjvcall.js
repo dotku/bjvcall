@@ -16,13 +16,20 @@ window.BJVCall = (function(id, opt) {
 	bjvcallObj.heading.logo = '/assets/images/logo.png';
 	bjvcallObj.VCtrlCenter = {};
 	bjvcallObj.VCtrlCenter.ctrl = [
-		{imageURL: '/assets/images/group.svg'},
-		{imageURL: '/assets/images/oval-138.svg'},
+		{	
+			ctrlName: 'videoBtn',
+			imageURL: '/assets/images/group.svg'
+		},
+		{
+			ctrlName: 'muteBtn',
+			imageURL: '/assets/images/oval-138.svg'
+		},
 	];
 	bjvcallObj.VCtrlRight = {};
 	bjvcallObj.ctrl = {
 		volume: 80,
 	}
+	bjvcallObj.audio = true;
 
 	if (typeof opt != 'undefined') {
 		bjvcallOpt = opt;
@@ -142,45 +149,129 @@ window.BJVCall = (function(id, opt) {
 		bjvcallOpt.size = "full";
 	}
 
+	/* SETTERS */
+	bjvcallObj.setTitle = function(str) {
+		bjvcallObj.patient_name = str;
+		bjvcallObj.init();
+	}
+
+	bjvcallObj.setPatientName = function(str){
+		bjvcallObj.setTitle(str);
+	}
+	
+	bjvcallObj.setAudio = function(str) {
+
+		switch (str) {
+			case 'on':
+				bjvcallObj.audio = true;
+				alert('Audio On');
+				break;
+
+			case 'off':
+				bjvcallObj.audio = false;
+				alert('Audio Off');
+
+				break;
+			default: 
+				console.log('bjvcallObj.audio', bjvcallObj.audio);
+				bjvcallObj.audio ? bjvcallObj.setAudio('off') : bjvcallObj.setAudio('on');
+				// do something
+		}
+	}
+
+	bjvcallObj.setMute = function(){
+		// different name for setAudio
+		bjvcallObj.setAudio();
+	}
+
+	bjvcallObj.setVideo = function(str) {
+		switch (str) {
+			case 'on':
+				bjvcallObj.video = true;
+				alert('Video On');
+				break;
+
+			case 'off':
+				bjvcallObj.video = false;
+				alert('Video Off');
+
+				break;
+			default: 
+				console.log('bjvcallObj.video', bjvcallObj.video);
+				bjvcallObj.video ? bjvcallObj.setVideo('off') : bjvcallObj.setVideo('on');
+				// do something
+		}
+	}
+
+	
+
+	bjvcallObj.setVolume = function(num) {
+		var num = prompt('Set Your Value');
+		bjvcallObj.ctrl.volume = num;
+		$("#" + id).find('.volumeValue').html(num);
+		alert('volume', num);
+		// bjvcallObj.init();
+		// bjvcallObj.open();
+	}
+
+	bjvcallObj.setOpt = function(opt){
+		console.log('setOpt');
+		var key;
+		/*
+		function setOpt(defaultOpt, customOpt) {
+			var key;
+			for (key in defaultOpt) {
+				if (!defaultOpt.hasOwnProperty(key)) 
+			}
+		}
+		*/
+		/*
+		for (key in opt) {
+			if (key)
+		}
+		*/
+		bjvcallOpt = opt;
+		bjvcallObj.init();
+	}
+
+	/* EVENTS LISENERS */
 	bjvcallObj.bindEvents = function(){
-		$(function(){
-		
-			
-			$("#" + id + " .bjvcall-container .bjvcall-close").on('click', function(){
-				console.log('bjvcall-close click');
-				bjvcallObj.close();
-			}); 
-			// .clone().appendTo("#" + id + " .bjvcall-container");
-			// .appendTo(document.body);
-			
+		$("#" + id + " .bjvcall-container .bjvcall-close").on('click', function(){
+			console.log('bjvcall-close click');
+			bjvcallObj.close();
+		}); 
 
-			/*
-			$("#bjidclose").on('click', function(){
-				console.log('bjvcall-close click');
-				bjvcallObj.close();
-			});
-			*/
-			$("#" + id + " .bjvcall-minimize").on('click', function(){
-				bjvcall.minimize();
-			});
-			$("#" + id + " .bjvcall-maximize").on('click', function(){
-				bjvcall.maximize();
-			});
+		$("#" + id + " .bjvcall-minimize").on('click', function(){
+			bjvcall.minimize();
+		});
+		$("#" + id + " .bjvcall-maximize").on('click', function(){
+			bjvcall.maximize();
+		});
 
-			$("#" + id + " .bjvcall-container .bjvcall-heading").on('mouseover', function(){
-				if (bjvcallOpt.size == "small") {
-					$("#" + id + " .bjvcall-container").css("cursor", "move");
-					$("#" + id + " .bjvcall-container").draggable();
-					$("#" + id + " .bjvcall-container").draggable('enable');
-				}
-			});
-
-			$("#" + id + " .bjvcall-container .bjvcall-heading").on('mouseout', function(){
-				$("#" + id + " .bjvcall-container").css("cursor", "auto");
+		$("#" + id + " .bjvcall-container .bjvcall-heading").on('mouseover', function(){
+			if (bjvcallOpt.size == "small") {
+				$("#" + id + " .bjvcall-container").css("cursor", "move");
 				$("#" + id + " .bjvcall-container").draggable();
-				$("#" + id + " .bjvcall-container").draggable('disable');
-			});
-		
+				$("#" + id + " .bjvcall-container").draggable('enable');
+			}
+		});
+
+		$("#" + id + " .bjvcall-container .bjvcall-heading").on('mouseout', function(){
+			$("#" + id + " .bjvcall-container").css("cursor", "auto");
+			$("#" + id + " .bjvcall-container").draggable();
+			$("#" + id + " .bjvcall-container").draggable('disable');
+		});
+
+		$("#" + id + " .bjvcall-container .videoBtn").on("click", function(){
+			bjvcallObj.setVideo();
+		});
+
+		$("#" + id + " .bjvcall-container .muteBtn").on("click", function(){
+			bjvcallObj.setMute();
+		});
+
+		$("#" + id + " .bjvcall-container .volumeBtn").on("click", function(){
+			bjvcallObj.setVolume(80);
 		});
 	}
 
@@ -240,33 +331,7 @@ window.BJVCall = (function(id, opt) {
 		}
 	}
 	
-	bjvcallObj.setTitle = function(str) {
-		bjvcallObj.patient_name = str;
-		bjvcallObj.init();
-	}
-	bjvcallObj.setPatientName = function(str){
-		bjvcallObj.setTitle(str);
-	}
-
-	bjvcallObj.setOpt = function(opt){
-		console.log('setOpt');
-		var key;
-		/*
-		function setOpt(defaultOpt, customOpt) {
-			var key;
-			for (key in defaultOpt) {
-				if (!defaultOpt.hasOwnProperty(key)) 
-			}
-		}
-		*/
-		/*
-		for (key in opt) {
-			if (key)
-		}
-		*/
-		bjvcallOpt = opt;
-		bjvcallObj.init();
-	}
+	
 	
 	bjvcallObj.init();
 
@@ -278,6 +343,9 @@ window.BJVCall = (function(id, opt) {
 
 	function genOpt(){
 		bjvcallOpt = {
+			keys: {
+				opentok: "OPENTOK_KEY_HERE"
+			},
 			patient : {
 				gender: 'female',
 				name: bjvcallObj.patient_name,
@@ -300,15 +368,19 @@ window.BJVCall = (function(id, opt) {
 				VCtrlLeft: "<div class='minivideo'></div>",
 				VCtrlCenter: "<a href='#'>" 
 				+ "<div class='col-xs-6 text-right'>"
-				+ "<div><img src='"+bjvcallObj.VCtrlCenter.ctrl[0].imageURL +"' class='' style='line-height: 50px'></div>"
+				+ "<div class='" + bjvcallObj.VCtrlCenter.ctrl[0].ctrlName + "'>"
+				+ "  <img src='"+bjvcallObj.VCtrlCenter.ctrl[0].imageURL +"' class='' style='line-height: 50px'>"
+				+ "</div>"
 				+ "<div class='text pull-right text-center'>video</div>"
 				+ "</div>"
 				+ "<div class='col-xs-6 text-left'>"
-				+ "<div><img src='"+bjvcallObj.VCtrlCenter.ctrl[1].imageURL +"' class='' style='line-height: 50px'></div>"
+				+ "<div class='" +bjvcallObj.VCtrlCenter.ctrl[1].ctrlName + "'>" 
+				+ "  <img src='"+bjvcallObj.VCtrlCenter.ctrl[1].imageURL +"' class='' style='line-height: 50px'>"
+				+ "</div>"
 				+ "<div class='text text-center'>mute</div>"
 				+ "</div>",
-				VCtrlRight: "<a href='#'><div class='text pull-right'>" 
-					+ "<div class='text-center' style='height: 60px; line-height: 60px;'>" + bjvcallObj.ctrl.volume + "</div>"
+				VCtrlRight: "<a href='#'><div class='text pull-right volumeBtn'>" 
+					+ "<div class='text-center volumeValue' style='height: 60px; line-height: 60px;'>" + bjvcallObj.ctrl.volume + "</div>"
 					+ "<div class='text-center'> volume </div>"
 					+ "</div></a>"
 
